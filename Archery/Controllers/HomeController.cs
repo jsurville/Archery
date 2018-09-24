@@ -14,6 +14,8 @@ namespace Archery.Controllers
         {
             return View();
         }
+
+        [Route("a-propos")] // pour mapper directement vers "a-propos" mais ne pas oublier de signaler la route routes.MapMvcAttributeRoutes() dans le controller
         public ActionResult About()
         {
             var modelInfo = new Info
