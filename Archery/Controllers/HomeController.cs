@@ -12,7 +12,6 @@ namespace Archery.Controllers
         // GET: Home
         public ActionResult Index()
         {
-           
             ViewData["Title"] = "Accueil";  // pour ajouter un titre à la View
             return View();
         }

@@ -1,10 +1,7 @@
 ﻿@model Archery.Models.Archer
 
 @{
-    /**/
-
     ViewBag.Title = "Inscription";
-   
 }
 
 <h2>Nouveau Tireur</h2>
@@ -14,49 +11,58 @@
 @using (Html.BeginForm())  // en méhtode POST seulement
 {
 <div class="container">
+    
+       @* @Html.ValidationSummary(null, new { @class="alert alert-danger"})*@
+   
+
     <div class="form-group">
         <div class="form-group">
             @*<label class="control-label" for="Email">Addresse Email </label>*@
             @Html.LabelFor(x => x.Email, new { @class = "control-label" })
             @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Entrez votre Email" } })
+            @Html.ValidationMessageFor(x =>x.Email, null, new {@class="text-danger" })
         </div>
         <div class="form-group">
             @Html.LabelFor(x => x.FirstName, new { @class = "control-label" })
             @Html.EditorFor(x => x.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Entrez votre Prénom" } })
+            @Html.ValidationMessageFor(x => x.FirstName, null, new { @class = "text-danger" })
         </div>
         <div class="form-group">
 
             @Html.LabelFor(x => x.LastName, new { @class = "control-label" })
             @Html.EditorFor(x => x.LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Entrez votre Nom" } })
+            @Html.ValidationMessageFor(x => x.LastName, null, new { @class = "text-danger" })
 
         </div>
         <div class="form-group">
             @Html.LabelFor(x => x.BirthDate, new { @class = "control-label" })
             @Html.EditorFor(x => x.BirthDate, new { htmlAttributes = new { @class = "form-control", @placeholder = "Entrez votre Date de Naissance" } })
+            @Html.ValidationMessageFor(x => x.BirthDate, null, new { @class = "text-danger" })
         </div>
         <div class="form-group">
             @Html.LabelFor(x => x.LicenseNumber, new { @class = "control-label" })
             @Html.EditorFor(x => x.LicenseNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "numéro : " } })
+            @Html.ValidationMessageFor(x => x.LicenseNumber, null, new { @class = "text-danger" })
         </div>
         <div class="form-group">
             @Html.LabelFor(x => x.Password, new { @class = "control-label" })
             @Html.EditorFor(x => x.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Entrez votre Mot de Passe" } })
+            @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
         </div>
         <div class="form-group">
 
             @Html.LabelFor(x => x.ConfirmedPassword, new { @class = "control-label" })
             @Html.EditorFor(x => x.ConfirmedPassword, new { htmlAttributes = new { @class = "form-control", @placeholder = "Confirmez le Mot de Passe" } })
+            @Html.ValidationMessageFor(x => x.ConfirmedPassword, null, new { @class = "text-danger" })
         </div>
 
     </div>
-    <button type="submit" class="btn btn-default">OK</button>
+    <button type="submit" style="float:right" class="btn btn-default">Envoyer</button>
 </div>
 
 }
 
 @*
-
-    
     <input type="email" name="email" class="form-control" id="InputEmail" placeholder="Entrez votre email">
          <label class="control-label" for="InputLastName">Nom </label>
          <input type="text" name="lastName" class="form-control" id="InputLastName" placeholder="Entrez votre Nom">

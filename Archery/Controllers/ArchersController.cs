@@ -12,7 +12,6 @@ namespace Archery.Controllers
         // GET: Players
         public ActionResult Subscribe()
         {
-
             return View();
         }
 
@@ -20,9 +19,18 @@ namespace Archery.Controllers
         [HttpPost]  // restreint la méthode Subscribe à la méhtode Htttp de type POST
         public ActionResult Subscribe(Archer archer )
         {
-            
+            if(ModelState.IsValid)
+            {
+                //...
+            }
+
+            int a = 7;
+            int b = 23;
+            string.Format("Demain la température sera comprise entre {0} et {1} °C", a, b);
+
             return View();
         }
+
 
 
     }
