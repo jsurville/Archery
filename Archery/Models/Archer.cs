@@ -8,7 +8,9 @@ namespace Archery.Models
 {
     public class Archer:User
     {
+        [Required]
         [Display(Name = "Numéro de Licence")]
         public string LicenseNumber { get; set; }
+        
     }
 }

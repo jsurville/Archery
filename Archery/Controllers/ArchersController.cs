@@ -19,10 +19,19 @@ namespace Archery.Controllers
         [HttpPost]  // restreint la méthode Subscribe à la méhtode Htttp de type POST
         public ActionResult Subscribe(Archer archer )
         {
-            if(ModelState.IsValid)
+            var Age = DateTime.Now.Subtract(archer.BirthDate);
+
+            var annees = Age.TotalDays / 365;
+            if (annees > 9)
             {
-                //...
+                if (ModelState.IsValid)
+                {
+                }
+
             }
+
+
+
 
             int a = 7;
             int b = 23;
