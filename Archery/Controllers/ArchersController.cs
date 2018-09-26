@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Archery.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,13 +12,15 @@ namespace Archery.Controllers
         // GET: Players
         public ActionResult Subscribe()
         {
+
             return View();
         }
 
         // POST: Players
         [HttpPost]  // restreint la méthode Subscribe à la méhtode Htttp de type POST
-        public ActionResult Subscribe(string email)
+        public ActionResult Subscribe(Archer archer )
         {
+            
             return View();
         }
 
