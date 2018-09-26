@@ -17,29 +17,30 @@
     </style>
 </head>
 <body style="background-color:antiquewhite">
-    <header class="page-header fixed-top bg-primary" >
+    <header class="page-header fixed-top bg-primary">
         <h1 style="margin-left:5px; padding-top:5px">Archery: club de tir à l'Arc </h1>
     </header>
-    
+
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 @*@<a class="navbar-brand" href="#">Brand</a>*@
                 @* @Html.ActionLink("Accueil", "index", "home",null, new { @class="navbar-brand"});*@
-                <a class="navbar-brand"  href="@Url.Action("index", "home")">Accueil</a>
-        </div>
+                <a class="navbar-brand" href="@Url.Action("index", "home")">Accueil</a>
+            </div>
 
-        <!-- Collect the nav links, forms, and oth0er content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                @*<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>*@
-                @**<li><a href="#">Link</a></li>*@
-                <li class="dropdown">
-                    @*<a href="~/a-propos"> A Propos </a>*@
-                    @Html.ActionLink("A propos", "about", "home")
-                </li>
-            </ul>
+            <!-- Collect the nav links, forms, and oth0er content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    @*<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>*@
+                    @**<li><a href="#">Link</a></li>*@
+                    <li class="dropdown">
+                        @*<a href="~/a-propos"> A Propos </a>*@
+                        @Html.ActionLink("A propos", "about", "home")
+                    </li>
+
+                </ul>
                 <form class="navbar-form navbar-left">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search">
@@ -47,6 +48,10 @@
                     <button type="submit" class="btn btn-default alert-info">Rechercher</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="@Url.Action( "subscribe", "archers")">Inscription </a>
+
+                    </li>
                     <li><a href="#">Link</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -61,7 +66,8 @@
     <footer class="panel-footer">
         &copy; 2018
     </footer>
-    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>

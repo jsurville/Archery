@@ -6,12 +6,21 @@ using System.Web.Mvc;
 
 namespace Archery.Controllers
 {
-    public class PlayersController : Controller
+    public class ArchersController : Controller
     {
         // GET: Players
         public ActionResult Subscribe()
         {
             return View();
         }
+
+        // POST: Players
+        [HttpPost]  // restreint la méthode Subscribe à la méhtode Htttp de type POST
+        public ActionResult Subscribe(string email)
+        {
+            return View();
+        }
+
+
     }
 }

@@ -1,0 +1,31 @@
+﻿
+@{
+    /**/
+
+    ViewBag.Title = "Inscription";
+}
+
+<h2>Nouveau Tireur</h2>
+
+@*<form role="form" method="post">*@
+
+@using (Html.BeginForm())  // en méhtode POST seulement
+{
+<div class="form-group col-lg-3">
+    <label class="control-label" for="InputEmail">Addresse Email </label>
+    <input type="email" name="email" class="form-control" id="InputEmail" placeholder="Entrez votre email">
+    <label class="control-label" for="InputLastName">Nom </label>
+    <input type="text" name="lastName" class="form-control" id="InputLastName" placeholder="Entrez votre Nom">
+    <label class="control-label" for="InputFirstName">Prénom </label>
+    <input type="text" name="firstName" class="form-control" id="InputFirstName" placeholder="Entrez votre Prénom">
+    <label class="control-label" for="InputBirthDate">Date de Naissance </label>
+    <input type="date" name="birthDate" class="form-control" id="InputBirthDate" placeholder="Entrez votre Date de Naissance">
+    <label class="control-label" for="InputPassword">Mot de Passe </label>
+    <input type="password" name="password" class="form-control" id="InputPassword" placeholder="Entrez votre mot de passe">
+    <label class="control-label" for="InputConfirmedPassword">Confirmez votre Mot de Passe </label>
+    <input type="password" name="password" class="form-control" id="InputConfirmedPassword" placeholder="Confirmez votre mot de passe">
+</div>
+    <button type="submit" class="btn btn-default">OK</button>
+}
+
+
