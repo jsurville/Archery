@@ -12,8 +12,6 @@ namespace Archery.Models
         [Display(Name = "Numéro de Licence")]
         public string LicenseNumber { get; set; }
 
-
-
        [Range(9,100,ErrorMessage ="Le Tireur doit avoir minimum 9 ans")]
         public double Age
         {
