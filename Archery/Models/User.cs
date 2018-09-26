@@ -23,22 +23,11 @@ namespace Archery.Models
         [Required]
         [Display(Name = "Nom")]
         public string LastName { get; set;  }
-
         
-       public double annees;
-        
-
         [Required]
         [Display(Name = "Date de Naissance")]
         [DataType(DataType.Date)]
-       
         public DateTime BirthDate { get; set; }
-
-        private double age(DateTime BirthDate)
-        {
-            return DateTime.Now.Subtract(BirthDate).TotalDays/365;
-        }
-        
 
         [Required]
         [Display(Name = "Mot de Passe")]

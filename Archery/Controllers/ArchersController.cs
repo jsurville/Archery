@@ -24,15 +24,6 @@ namespace Archery.Controllers
             {
                 
             }
-           
-
-
-
-
-            int a = 7;
-            int b = 23;
-            string.Format("Demain la température sera comprise entre {0} et {1} °C", a, b);
-
             return View();
         }
 

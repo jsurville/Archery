@@ -22,7 +22,7 @@ namespace Archery.Controllers
             var modelInfo = new Info
             {
                 DevName = "Julien SURVILLE",
-                ContactMail = "julien.surville.gmail",
+                ContactMail = "julien.surville@gmail.com",
                 CreatedDate = DateTime.Now
             };
 
