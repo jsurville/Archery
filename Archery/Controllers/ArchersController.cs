@@ -22,13 +22,15 @@ namespace Archery.Controllers
             var Age = DateTime.Now.Subtract(archer.BirthDate);
 
             var annees = Age.TotalDays / 365;
-            if (annees > 9)
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                if (annees > 9)
                 {
                 }
-
+                else {
+                }
             }
+           
 
 
 
