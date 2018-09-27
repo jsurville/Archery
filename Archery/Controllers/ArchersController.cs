@@ -14,7 +14,7 @@ namespace Archery.Controllers
         {
             return View();
         }
-
+        
         // POST: Players
         [HttpPost]  // restreint la méthode Subscribe à la méhtode Htttp de type POST
         public ActionResult Subscribe(Archer archer )

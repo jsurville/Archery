@@ -38,10 +38,8 @@ namespace Archery.Validators
                 }
                 
             }
-            return false;
+            return false; // si la date est null, l'exception est gérée
             throw new ArgumentException("Le type doit être de type DateTime");
-            //return base.IsValid(value);
-
         }
 
         public override string FormatErrorMessage(string name)
@@ -54,7 +52,6 @@ namespace Archery.Validators
             {
                 return string.Format(this.ErrorMessage, name, this.MinimumAge.ToString(), this.MaximumAge.ToString());
             }
-           
         }
     }
 }
