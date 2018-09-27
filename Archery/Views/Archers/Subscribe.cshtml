@@ -7,7 +7,11 @@
 
 @using (Html.BeginForm())  // en méhtode POST seulement
 {
-    @section SectionTitle{<h2>Nouveau Tireur </h2> }
+    @section SectionTitle
+        {
+        Nouveau Tireur
+    }
+
     @* @Html.ValidationSummary(null, new { @class="alert alert-danger"})*@
     <div class="form-group">
 
@@ -55,6 +59,11 @@
 
 
 
+@section SectionScripts{
+    <script>
+        var div = $('div');
+    </script>
+}
 
 @*
     <input type="email" name="email" class="form-control" id="InputEmail" placeholder="Entrez votre email">

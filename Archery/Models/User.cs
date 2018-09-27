@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -37,7 +38,7 @@ namespace Archery.Models
         [RegularExpression(@"(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$", ErrorMessage = "Le format du Mot de Passe n'est pas bon")]
         public string Password { get; set;  }
 
-     
+        [NotMapped]
         [Display(Name = "Confirmation du Mot de Passe")]
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage ="La Confirmation du Mot de Passe n'est pas bonne")]
