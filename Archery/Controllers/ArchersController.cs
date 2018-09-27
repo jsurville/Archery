@@ -1,14 +1,14 @@
 ﻿using Archery.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using Archery.Data;
+
 using System.Web.Mvc;
+
 
 namespace Archery.Controllers
 {
-    public class ArchersController : Controller
+    public class ArchersController : Controller 
     {
+        private ArcheryDbContext db = new ArcheryDbContext();
         // GET: Players
         public ActionResult Subscribe()
         {
@@ -29,10 +29,30 @@ namespace Archery.Controllers
 
             if (ModelState.IsValid)
             {
-                
+                db.Archers.Add(archer);
+                db.SaveChanges();
+                ViewData["message"] = "Enregistrment réussi";
+                // return RedirectToAction("index", "home");
+            }
+            else
+            {
+                return ViewBag.Error = "L'enregistrement du Tireur n'a pas pu être effectuée";
             }
             return View();
         }
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+            if (!disposing)
+                this.db.Dispose();
+        }
+
+
+
+
+
+
+
 
 
 

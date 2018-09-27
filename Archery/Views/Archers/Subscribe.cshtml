@@ -52,16 +52,21 @@
             @Html.EditorFor(x => x.ConfirmedPassword, new { htmlAttributes = new { @class = "form-control", @placeholder = "Confirmez le Mot de Passe" } })
             @Html.ValidationMessageFor(x => x.ConfirmedPassword, null, new { @class = "text-danger" })
         </div>
-        <button type="submit" style="float:right" class="btn btn-default">Envoyer</button>
-
+        <button id="boutonValidation" type="submit" onclick="effacer()" style="float:right" class="btn btn-default">Envoyer</button>
+        <div id="message" style="color:blueviolet; float:left" class="alert btn-default">
+            @ViewBag.message
+        </div>
+      
     </div>
 }
 
 
-
 @section SectionScripts{
     <script>
-        var div = $('div');
+        function effacer() {
+            let div = $('boutonValidation');
+            div.empty();
+        }
     </script>
 }
 

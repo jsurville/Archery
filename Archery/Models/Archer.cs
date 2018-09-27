@@ -10,6 +10,7 @@ namespace Archery.Models
     {
         [Required]
         [Display(Name = "Numéro de Licence")]
+        [StringLength(15)]
         public string LicenseNumber { get; set; }
 
 
