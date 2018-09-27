@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Archery.Validators;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -27,6 +28,7 @@ namespace Archery.Models
         [Required]
         [Display(Name = "Date de Naissance")]
         [DataType(DataType.Date)]
+        [Age(9,MaximumAge =80,ErrorMessage ="Le tireur doit avoir entre {1} et {2} ans ")] // Validateur de l'Age créé dans le dossier Validators, dans la classe Age.cs
         public DateTime BirthDate { get; set; }
 
         [Required]
