@@ -14,7 +14,23 @@ namespace Archery.Controllers
         {
             return View();
         }
-        
+
+        public ActionResult List( )
+        {
+            var dbArchers = db.Archers;
+            Archer archer = new Archer
+            {
+                Email = dbArchers.Find(1).Email,
+                FirstName = dbArchers.Find(1).FirstName,
+                LastName = dbArchers.Find(1).LastName,
+                BirthDate = dbArchers.Find(1).BirthDate,
+                LicenseNumber = dbArchers.Find(1).LicenseNumber,
+                Password = dbArchers.Find(1).Password
+            };
+            
+            return View(archer);
+        }
+
         // POST: Players
         [HttpPost]  // restreint la méthode Subscribe à la méhtode Htttp de type POST
         public ActionResult Subscribe(Archer archer )

@@ -64,8 +64,11 @@
 @section SectionScripts{
     <script>
         function effacer() {
-            let div = $('boutonValidation');
+            let bouton = $('boutonValidation');
+            let div = bouton.closest('.btn')
+            //bouton.remove();
             div.empty();
+            console.log("Coucou");
         }
     </script>
 }
