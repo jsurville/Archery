@@ -2,19 +2,26 @@
 
 
 @{
-    ViewBag.Title = "List";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    
-}
+    ViewBag.Title = "Liste ";
+    Layout = "~/Views/Shared/_ListLayout.cshtml";
 
-<h2>List des Tireurs</h2>
+}
+@section SectionTitle
+        {
+    Liste des Tireurs
+}
 
 @{
     /*var ArcherList = new List<Archery.Models.Archer>();*/
-
+   
     foreach (Archery.Models.Archer element in Model)
     {
-        <p> NOM: @element.LastName</p>
+<ul class="list-group">
+    <li class="list-group-item alert alert-info col-12"> @(element.LastName)  @(element.FirstName)  @(element.BirthDate.)   @(element.LicenseNumber) </li>
+   
+</ul>
+        
+
     }
 
 

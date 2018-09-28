@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Liste des Inscrits";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>@RenderSection("SectionTitle", true)</h2>
+
+<div class="container col-md-3">
+    <p> IUYGUYGIYGIYGIYGIYGIYGIYGIYGIYGIGY</p>
+</div>
+<div class="container col-md-6 alert alert-success row">
+    <div id="champsClients" style="border:solid 1px green; align-content:stretch " class="alert alert-primary">
+        <label class="col-3">Nom |</label>
+        <label class="col-3"></label>
+        <label class="col-3">Prénom |</label>
+        <label class="col-3"></label>
+        <label class="col-3">Date de Naissance |</label>
+        <label class="col-3"></label>
+        <label class="col-3">Numéro de Licence |</label>
+    </div>
+    @RenderBody()
+
+</div>
+
+<div class="container col-md-3">
+    <p> IUYGUYGIYGIYGIYGIYGIYGIYGIYGIYGIGY</p>
+</div>
+
+
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+@section SectionScripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>  @* Pour la validation du formulaire COTE CLIENT !!!*@
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    @RenderSection("SectionScripts", false)
+}
+

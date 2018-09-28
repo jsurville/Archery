@@ -7,13 +7,13 @@ using System.Web.Mvc;
 
 namespace Archery.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         // GET: Home
         public ActionResult Index()
         {
-
-            Session["test"] = "rtest";
+            
+            //Session["test"] = "rtest";
             ViewData["Title"] = "Accueil";  // pour ajouter un titre à la View
             return View();
         }

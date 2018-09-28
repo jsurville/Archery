@@ -1,8 +1,4 @@
 ﻿
-@{
-    Layout = null;
-}
-
 <!DOCTYPE html>
 
 <html>
@@ -49,6 +45,9 @@
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
+                        <a href="@Url.Action( "list", "archers")">Liste des Participants </a>
+                    </li>
+                    <li class="dropdown">
                         <a href="@Url.Action( "subscribe", "archers")">Inscription </a>
                     </li>
                     <li><a href="#">Link</a></li>
@@ -60,13 +59,8 @@
     <div class="container-fluid">
         @RenderBody()
     </div>
-    <div class="container">
-        @if (!string.IsNullOrWhiteSpace((string)@TempData["message"]))
-        {
-            <div id="message" style="color:blueviolet; float:right" class="container btn-@TempData["messageType"] alert-@TempData["messageType"]">
-                @TempData["message"]
-            </div>
-        }
+    <div id="PartialDisplay" class="container">
+      
     </div>
 
     <footer class="panel-footer">
