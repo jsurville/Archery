@@ -13,51 +13,50 @@
     }
 
     @* @Html.ValidationSummary(null, new { @class="alert alert-danger"})*@
-    <div class="form-group">
+<div class="form-group">
 
-        @*<label class="control-label" for="Email">Addresse Email </label>*@
-        <div class="form-group">
-            @Html.LabelFor(x => x.Email, new { @class = "control-label" })
-            @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Entrez votre Email" } })
-            @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })      @*  Ca c'est la validation côté SERVEUR en Razor !!!!!!!*@
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(x => x.FirstName, new { @class = "control-label" })
-            @Html.EditorFor(x => x.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Entrez votre Prénom" } })
-            @Html.ValidationMessageFor(x => x.FirstName, null, new { @class = "text-danger" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(x => x.LastName, new { @class = "control-label" })
-            @Html.EditorFor(x => x.LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Entrez votre Nom" } })
-            @Html.ValidationMessageFor(x => x.LastName, null, new { @class = "text-danger" })
-        </div>
-        <div class="form-group" , id="dateNaissance">
-            @Html.LabelFor(x => x.BirthDate, new { @class = "control-label" })
-            @Html.EditorFor(x => x.BirthDate, new { htmlAttributes = new { @class = "form-control", @placeholder = "Entrez votre Date de Naissance" } })
-            @Html.ValidationMessageFor(x => x.BirthDate, null, new { @class = "text-danger" })
-            @*  @Html.ValidationMessageFor(x => x.Age, null, new { @class = "text-danger" })*@
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(x => x.LicenseNumber, new { @class = "control-label" })
-            @Html.EditorFor(x => x.LicenseNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "numéro : " } })
-            @Html.ValidationMessageFor(x => x.LicenseNumber, null, new { @class = "text-danger" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(x => x.Password, new { @class = "control-label" })
-            @Html.EditorFor(x => x.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Entrez votre Mot de Passe" } })
-            @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(x => x.ConfirmedPassword, new { @class = "control-label" })
-            @Html.EditorFor(x => x.ConfirmedPassword, new { htmlAttributes = new { @class = "form-control", @placeholder = "Confirmez le Mot de Passe" } })
-            @Html.ValidationMessageFor(x => x.ConfirmedPassword, null, new { @class = "text-danger" })
-        </div>
-        <button id="boutonValidation" type="submit" onclick="effacer()" style="float:right" class="btn btn-default">Envoyer</button>
-        <div id="message" style="color:blueviolet; float:left" class="alert btn-default">
-            @ViewBag.message
-        </div>
-      
+    @*<label class="control-label" for="Email">Addresse Email </label>*@
+    <div class="form-group">
+        @Html.LabelFor(x => x.Email, new { @class = "control-label" })
+        @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Entrez votre Email" } })
+        @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })      @*  Ca c'est la validation côté SERVEUR en Razor !!!!!!!*@
     </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.FirstName, new { @class = "control-label" })
+        @Html.EditorFor(x => x.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Entrez votre Prénom" } })
+        @Html.ValidationMessageFor(x => x.FirstName, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.LastName, new { @class = "control-label" })
+        @Html.EditorFor(x => x.LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Entrez votre Nom" } })
+        @Html.ValidationMessageFor(x => x.LastName, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group" , id="dateNaissance">
+        @Html.LabelFor(x => x.BirthDate, new { @class = "control-label" })
+        @Html.EditorFor(x => x.BirthDate, new { htmlAttributes = new { @class = "form-control", @placeholder = "Entrez votre Date de Naissance" } })
+        @Html.ValidationMessageFor(x => x.BirthDate, null, new { @class = "text-danger" })
+        @*  @Html.ValidationMessageFor(x => x.Age, null, new { @class = "text-danger" })*@
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.LicenseNumber, new { @class = "control-label" })
+        @Html.EditorFor(x => x.LicenseNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "numéro : " } })
+        @Html.ValidationMessageFor(x => x.LicenseNumber, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Password, new { @class = "control-label" })
+        @Html.EditorFor(x => x.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Entrez votre Mot de Passe" } })
+        @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.ConfirmedPassword, new { @class = "control-label" })
+        @Html.EditorFor(x => x.ConfirmedPassword, new { htmlAttributes = new { @class = "form-control", @placeholder = "Confirmez le Mot de Passe" } })
+        @Html.ValidationMessageFor(x => x.ConfirmedPassword, null, new { @class = "text-danger" })
+    </div>
+    <button id="boutonValidation" type="submit"style="float:right" class="btn btn-default">Envoyer</button>
+   
+
+
+</div>
 }
 
 

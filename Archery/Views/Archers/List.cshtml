@@ -1,12 +1,21 @@
-﻿@model Archery.Models.Archer
+﻿@model List<Archery.Models.Archer>
 
 
 @{
     ViewBag.Title = "List";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    
 }
 
 <h2>List des Tireurs</h2>
 
+@{
+    /*var ArcherList = new List<Archery.Models.Archer>();*/
 
-<p> Email: @Model.Email </p>
+    foreach (Archery.Models.Archer element in Model)
+    {
+        <p> NOM: @element.LastName</p>
+    }
+
+
+}

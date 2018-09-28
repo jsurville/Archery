@@ -2,7 +2,7 @@
 using Archery.Data;
 
 using System.Web.Mvc;
-
+using System.Collections.Generic;
 
 namespace Archery.Controllers
 {
@@ -18,17 +18,13 @@ namespace Archery.Controllers
         public ActionResult List( )
         {
             var dbArchers = db.Archers;
-            Archer archer = new Archer
+            List<Archer> ArcherList = new List<Archer>();
+            foreach (Archer element in dbArchers)
             {
-                Email = dbArchers.Find(1).Email,
-                FirstName = dbArchers.Find(1).FirstName,
-                LastName = dbArchers.Find(1).LastName,
-                BirthDate = dbArchers.Find(1).BirthDate,
-                LicenseNumber = dbArchers.Find(1).LicenseNumber,
-                Password = dbArchers.Find(1).Password
-            };
-            
-            return View(archer);
+                Archer archer = element;
+                ArcherList.Add(archer);
+            }
+            return View(ArcherList);
         }
 
         // POST: Players
@@ -47,14 +43,15 @@ namespace Archery.Controllers
             {
                 db.Archers.Add(archer);
                 db.SaveChanges();
-                ViewData["message"] = "Enregistrment réussi";
-                // return RedirectToAction("index", "home");
+                TempData["messageType"] = "success";
+                TempData["message"] = "Enregistrment réussi";
+                return RedirectToAction("index", "home");
             }
             else
             {
                 return ViewBag.Error = "L'enregistrement du Tireur n'a pas pu être effectuée";
             }
-            return View();
+           // return View();
         }
         protected override void Dispose(bool disposing)
         {
