@@ -3,6 +3,7 @@ using Archery.Data;
 using Archery.Tools;
 using System.Web.Mvc;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 
 namespace Archery.Controllers
 {
@@ -29,18 +30,22 @@ namespace Archery.Controllers
 
         // POST: Players
         [HttpPost]  // restreint la méthode Subscribe à la méhtode Htttp de type POST
-        public ActionResult Subscribe(Archer archer )
+        [ValidateAntiForgeryToken] // PREMIER ELEMENT DE SECURITE A METTRE EN PLACE indique au serveur qu'il doit valider un jeton anti-intrusion
+        public ActionResult Subscribe([Bind(Exclude ="ID")]Archer archer ) // {Bind( ... )] pour ne récupérer que les paramètres de la requête dont j'ai besoin: ici, on exclut l'ID
         {
-            
+
             //if(DateTime.Now.AddYears(-9) <= archer.BirthDate)
             //{
             //    // ViewBag.Erreur = "L'age n'est pas bon";
             //    // return View();
             //    ModelState.AddModelError("Birthdate", "Date de Naissance invalide: l'âge doit être au minimu de 9 ans"); // et l'erreur apparaitra dans la view car on valide sur la BirthDate
             //}
-
+            
             if (ModelState.IsValid)
             {
+                Password password = new Password();
+                var EncryptedPassword = password.ToMD5(archer.Password);
+                archer.Password = EncryptedPassword;
                 db.Archers.Add(archer);
                 db.SaveChanges();
 

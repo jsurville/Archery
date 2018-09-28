@@ -5,8 +5,10 @@
     Layout = "~/Views/Shared/_FormulaireLayout.cshtml";
 }
 
-@using (Html.BeginForm())  // en méhtode POST seulement
+@using (Html.BeginForm())  // en méhtode POST seulement Formulaire à remplir
 {
+    @Html.AntiForgeryToken()  @* Permet d'ajouter le jeton de sécurité implanté dans le controler et donc le fomrulaire peut être envoyé au serveur *@  
+
     @section SectionTitle
         {
         Nouveau Tireur
