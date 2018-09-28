@@ -57,12 +57,14 @@
     </nav>
 
     <div class="container-fluid">
+        <div id="PartialDisplay" class="container">
+            @Html.Partial("_PartialDisplay")
+            @* @{ Html.RenderPartial("_PartialDisplay")} *@
+        </div>
+
         @RenderBody()
     </div>
-    <div id="PartialDisplay" class="container">
-      
-    </div>
-
+   
     <footer class="panel-footer">
         &copy; 2018
     </footer>
