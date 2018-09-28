@@ -46,6 +46,7 @@ namespace Archery.Controllers
                 Password password = new Password();
                 var EncryptedPassword = password.ToMD5(archer.Password);
                 archer.Password = EncryptedPassword;
+                db.Configuration.ValidateOnSaveEnabled = false;
                 db.Archers.Add(archer);
                 db.SaveChanges();
 
