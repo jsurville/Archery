@@ -52,11 +52,7 @@ namespace Archery.Controllers
                     Display("Le Nouveau Tireur a bien été enregistré");
                     return RedirectToAction("index", "home");
             }
-            //else
-            //{
-            //     Display("Le Tireur n'a pas pu être enregistré", MesssageType.DANGER);
-            //    return RedirectToAction("index", "home");
-            //}
+            
             return View();
         }
 
