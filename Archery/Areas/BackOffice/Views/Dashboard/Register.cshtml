@@ -1,0 +1,37 @@
+﻿@model Archery.Models.Shooter
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Areas/BackOffice/Views/Shared/_FormulaireLayout.cshtml";
+}
+@section SectionTitle
+        {
+    <h2>Enregistrement d'un Tireur</h2>
+}
+
+    <div class="form-group">
+        <div class="form-group">
+            @Html.LabelFor(x => x.TournamentID, new { @class = "control-label" })
+            @Html.EditorFor(x => x.TournamentID, new { htmlAttributes = new { @class = "form-control", @type = "number", @placeholder = "Entrez le numéro du Tournoi" } })
+            @Html.ValidationMessageFor(x => x.TournamentID, null, new { @class = "text-danger" })     @*Ca c'est la validation côté SERVEUR en Razor !!!!!!!*@
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.BowTypeID, new { @class = "control-label" })
+            @Html.EditorFor(x => x.BowType.ID, new { htmlAttributes = new { @class = "form-control", @type = "number", @placeholder = "Entrez le numéro du type d'arme choisie" } })
+            @Html.ValidationMessageFor(x => x.BowTypeID, null, new { @class = "text-danger" })     @*Ca c'est la validation côté SERVEUR en Razor !!!!!!!**@
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.ArcherID, new { @class = "control-label" })
+            @Html.EditorFor(x => x.Archer.ID, new { htmlAttributes = new { @class = "form-control", @type = "number", @placeholder = "Entrez le numéro du tireur" } })
+            @Html.ValidationMessageFor(x => x.ArcherID, null, new { @class = "text-danger" })     @*Ca c'est la validation côté SERVEUR en Razor !!!!!!!**@
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.StatTime, new { @class = "control-label" })
+            @Html.EditorFor(x => x.StatTime, new { htmlAttributes = new { @class = "form-control", @type = "timer", @placeholder = "Entrez l'eure d'enregistrment " } })
+            @Html.ValidationMessageFor(x => x.StatTime, null, new { @class = "text-danger" })     @*Ca c'est la validation côté SERVEUR en Razor !!!!!!!**@
+        </div>
+        <button id="boutonValidation" type="submit" style="float:right" class="btn btn-default">Envoyer</button>
+        </div>

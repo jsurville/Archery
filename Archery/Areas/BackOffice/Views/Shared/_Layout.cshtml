@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title  | Archery</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
@@ -20,24 +20,41 @@
                 @Html.ActionLink("Archery", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) @* area = ""  le nom de l'area du Home de l'application n'a pas de nom *@
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav"></ul>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="@Url.Action("createtournament", "dashboard")">Organiser un Tournoi </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="@Url.Action("register", "dashboard")">Enregistrer un Paricipant </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 
     <div class="container body-content">
+        <div id="PartialDisplay" class="container">
+            @{ if (ViewBag.Title == "CreateTournament")
+                {
+                    @Html.Partial("_PartialDisplay")
+                }
+
+
+                @* @{ Html.RenderPartial("_PartialDisplay")} *@}
+        </div>
+
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+
+
     </div>
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>>
-    @RenderSection("SectionScripts", false)
+    <footer>
+        &copy; 2018
+    </footer>
 
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    @RenderSection("SectionScripts", false)
 </body>
 </html>

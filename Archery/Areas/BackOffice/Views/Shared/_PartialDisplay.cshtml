@@ -1,0 +1,25 @@
+﻿@model Archery.Models.BowType
+@{
+    Layout = null;
+
+
+}
+
+<h2> Liste des Armes</h2>
+
+@{
+    var BowList = new List<Archery.Models.BowType>();
+
+    <div class="form-group">
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.Name, new { @class = "control-label" })
+            @Html.EditorFor(x => x.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Entrez le nom de l'arme sélectionnée" } })
+            @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" })      @*  Ca c'est la validation côté SERVEUR en Razor !!!!!!!*@
+        </div>
+        <button id="boutonValidation" type="submit" style="float:left" class="btn btn-default">Ajouter</button>
+
+</div>
+
+
+        }

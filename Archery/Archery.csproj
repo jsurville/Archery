@@ -115,6 +115,10 @@
     <Content Include="Areas\BackOffice\Views\_ViewStart.cshtml" />
     <Content Include="Areas\BackOffice\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\BackOffice\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Dashboard\CreateTournament.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Shared\_FormulaireLayout.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Shared\_PartialDisplay.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Dashboard\Register.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

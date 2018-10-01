@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Formulaire d'Inscription";
+    Layout = "~/Areas/BackOffice/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container col-md-3">
+
+
+</div>
+<div class="container-fluid col-md-6">
+
+    <div class="panel panel-primary alert alert-success">
+        <div class="panel-heading alert alert-success"><h2>@RenderSection("SectionTitle", true)</h2></div>
+        <div class="panel-body">
+            @RenderBody()
+        </div>
+    </div>
+
+</div>
+<div class="container col-md-3">
+
+
+</div>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+@section SectionScripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>  @* Pour la validation du formulaire COTE CLIENT !!!*@
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    @RenderSection("SectionScripts", false)
+}
