@@ -43,9 +43,11 @@ namespace Archery.Controllers
             
             if (ModelState.IsValid)
             {
-                Password password = new Password();
-                var EncryptedPassword = password.ToMD5(archer.Password);
-                archer.Password = EncryptedPassword;
+                archer.Password.ToMD5();
+               //Password password = new Password();
+               //var EncryptedPassword = password.; // presque une méthode d'extention
+               
+               
                 db.Configuration.ValidateOnSaveEnabled = false;
                 db.Archers.Add(archer);
                 db.SaveChanges();
