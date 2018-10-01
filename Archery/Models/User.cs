@@ -16,6 +16,8 @@ namespace Archery.Models
         [StringLength(150, ErrorMessage ="Le champ {0} doit contenir {1} caractères au maximum ")]
         [Display(Name ="Adresse Mail")]
         [RegularExpression(@"^[^\W][a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*.[a-zA-Z]{2,4}$", ErrorMessage ="Le format n'est pas bon")]
+        [Index(IsUnique = true)]
+        [EmailAttribute(ErrorMessage ="Le tireur ne peut pas être enregistré car l'email renseigné existe déjà")]
         public string Email { get; set; }
 
         [StringLength(50)]

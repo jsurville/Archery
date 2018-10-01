@@ -10,6 +10,9 @@ namespace Archery.Tools
     /// <summary>
     /// Méthode d'extention pour haser une chaine de caractères au format MD5
     /// </summary>
+    /// <param name="strText"> le texte à hasher</param>
+    ///
+    /// 
     public static class Extentsion // crée la classe Password en static pour permettre l'accès à ses méthodes statiques sur n'importe quel string ou Password
     {
         public static string ToMD5(this string strText) // this string permet de créer une méthode d'extention de la méthode ToMD5 sur n'importe quelle string

@@ -44,20 +44,20 @@ namespace Archery.Controllers
             if (ModelState.IsValid)
             {
                 archer.Password.ToMD5(); // Méthode d'extention
-             
-                db.Configuration.ValidateOnSaveEnabled = false;
-                db.Archers.Add(archer);
-                db.SaveChanges();
-                db.Configuration.ValidateOnSaveEnabled = true;
-
-                Display("Le Nouveau Tireur a bien été enregistré");
-                return RedirectToAction("index", "home");
+                
+                    db.Configuration.ValidateOnSaveEnabled = false;
+                    db.Archers.Add(archer);
+                    db.SaveChanges();
+                    db.Configuration.ValidateOnSaveEnabled = true;
+                    Display("Le Nouveau Tireur a bien été enregistré");
+                    return RedirectToAction("index", "home");
             }
-            else
-            {
-                return ViewBag.Error = "L'enregistrement du Tireur n'a pas pu être effectuée";
-            }
-           // return View();
+            //else
+            //{
+            //     Display("Le Tireur n'a pas pu être enregistré", MesssageType.DANGER);
+            //    return RedirectToAction("index", "home");
+            //}
+            return View();
         }
 
 
