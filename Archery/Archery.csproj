@@ -132,6 +132,20 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
+    <Compile Include="Migrations\201810011509055_AjoutTournoi.cs" />
+    <Compile Include="Migrations\201810011509055_AjoutTournoi.Designer.cs">
+      <DependentUpon>201810011509055_AjoutTournoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810011510116_cascadefalse.cs" />
+    <Compile Include="Migrations\201810011510116_cascadefalse.Designer.cs">
+      <DependentUpon>201810011510116_cascadefalse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\BowType.cs" />
+    <Compile Include="Models\Registration.cs" />
+    <Compile Include="Models\Shooter.cs" />
+    <Compile Include="Models\TimeWindow.cs" />
+    <Compile Include="Models\Tournament.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ArchersController.cs" />
@@ -190,6 +204,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810011037295_EmailCmpare.resx">
       <DependentUpon>201810011037295_EmailCmpare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810011509055_AjoutTournoi.resx">
+      <DependentUpon>201810011509055_AjoutTournoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810011510116_cascadefalse.resx">
+      <DependentUpon>201810011510116_cascadefalse.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
