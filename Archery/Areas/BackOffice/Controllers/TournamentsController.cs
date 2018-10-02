@@ -27,7 +27,7 @@ namespace Archery.Areas.BackOffice.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tournament tournament = db.Tournaments.Find(id);
+            Tournament tournament = db.Tournaments.Include("BowList").SingleOrDefault(x => x.ID == id);
             if (tournament == null)
             {
                 return HttpNotFound();
@@ -48,15 +48,23 @@ namespace Archery.Areas.BackOffice.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Location,Capacity,StartDate,EndDate,FeePerson,Description")] Tournament tournament)
+        public ActionResult Create([Bind(Include = "Name,Location,Capacity,StartDate,EndDate,FeePerson,Description")] Tournament tournament, int[] BowsID)
         {
             if (ModelState.IsValid)
             {
+
+                tournament.BowList = new List<BowType>();
+                
+                foreach (var item in BowsID)
+                {
+                    tournament.BowList.Add(db.BowTypes.Find(item));
+                }
                 db.Tournaments.Add(tournament);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            MultiSelectList bowTypeValues = new MultiSelectList(db.BowTypes, "ID", "Name");
+            ViewData["Bowtypes"] = bowTypeValues;
             return View(tournament);
         }
 

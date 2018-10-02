@@ -1,13 +1,13 @@
 ﻿@model Archery.Models.Tournament
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Tourrnoi: Details";
 }
 
 <h2>Details</h2>
 
 <div>
-    <h4>tOURNOI</h4>
+    <h4>Tournoi</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -24,6 +24,20 @@
 
         <dd>
             @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BowList)
+        </dt>
+
+        <dd>
+            <table class="table table-striped ">
+                @foreach (var item in Model.BowList)
+                {
+                    <tr><td>@item.Name</td></tr>
+                }
+
+            </table>
         </dd>
 
         <dt>
