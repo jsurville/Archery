@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Tournament</h4>
+    <h4>tOURNOI</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -57,10 +57,13 @@
         <dd>
             @Html.DisplayFor(model => model.FeePerson)
         </dd>
+        <dd>
+            @Html.Raw(Model.Description) @* pour afficher directement à l'écran la description et non pas le code html de la description obtenue par Tiny MCE*@
+        </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Retour à la Liste", "Index")
 </p>

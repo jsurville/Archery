@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<Archery.Models.Tournament>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Tournoi: Liste";
 }
 
-<h2>Index</h2>
+<h2>Liste des Tournois</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Ajouter un Tournoi", "Create", null, new {@class="btn btn-info" })
 </p>
-<table class="table">
+<table class="table container">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -28,6 +28,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FeePerson)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
         </th>
         <th></th>
     </tr>
@@ -53,9 +56,12 @@
             @Html.DisplayFor(modelItem => item.FeePerson)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.Raw(item.Description)
+        </td>
+        <td>
+            @Html.ActionLink("Modifier", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Supprimer", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
