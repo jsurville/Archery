@@ -10,6 +10,12 @@ namespace Archery.Models
 
     public class Tournament:BaseModel
     {
+
+        [Display(Name = "Nom")]
+        [Required(ErrorMessage = "Le Champ {0} est obligatoire")]
+        [StringLength(50)]
+        public string Name { get; set; }
+
         [Display(Name = "Lieu")]
         [Required(ErrorMessage = "Le Champ {0} est obligatoire")]
         public string Location { get; set; }

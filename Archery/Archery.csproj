@@ -115,10 +115,18 @@
     <Content Include="Areas\BackOffice\Views\_ViewStart.cshtml" />
     <Content Include="Areas\BackOffice\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\BackOffice\Views\Dashboard\Index.cshtml" />
-    <Content Include="Areas\BackOffice\Views\Dashboard\CreateTournament.cshtml" />
     <Content Include="Areas\BackOffice\Views\Shared\_FormulaireLayout.cshtml" />
     <Content Include="Areas\BackOffice\Views\Shared\_PartialDisplay.cshtml" />
-    <Content Include="Areas\BackOffice\Views\Dashboard\Register.cshtml" />
+    <Content Include="Areas\BackOffice\Views\BowTypes\Create.cshtml" />
+    <Content Include="Areas\BackOffice\Views\BowTypes\Delete.cshtml" />
+    <Content Include="Areas\BackOffice\Views\BowTypes\Details.cshtml" />
+    <Content Include="Areas\BackOffice\Views\BowTypes\Edit.cshtml" />
+    <Content Include="Areas\BackOffice\Views\BowTypes\Index.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Tournaments\Create.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Tournaments\Delete.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Tournaments\Details.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Tournaments\Edit.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Tournaments\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -135,7 +143,9 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\BowTypesController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\TournamentsController.cs" />
     <Compile Include="Migrations\201810011509055_AjoutTournoi.cs" />
     <Compile Include="Migrations\201810011509055_AjoutTournoi.Designer.cs">
       <DependentUpon>201810011509055_AjoutTournoi.cs</DependentUpon>
@@ -144,6 +154,7 @@
     <Compile Include="Migrations\201810011510116_cascadefalse.Designer.cs">
       <DependentUpon>201810011510116_cascadefalse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ArcheryContext.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\BowType.cs" />
     <Compile Include="Models\Registration.cs" />

@@ -19,15 +19,5 @@ namespace Archery.Areas.BackOffice.Controllers
         }
 
        
-        public ActionResult CreateTournament()
-        {
-            return View();
-           
-        }
-
-        public ActionResult Register()
-        {
-            return View();
-        }
     }
 }
