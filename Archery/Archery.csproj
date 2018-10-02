@@ -154,6 +154,22 @@
     <Compile Include="Migrations\201810011510116_cascadefalse.Designer.cs">
       <DependentUpon>201810011510116_cascadefalse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810020845346_AjoutNameTournoi.cs" />
+    <Compile Include="Migrations\201810020845346_AjoutNameTournoi.Designer.cs">
+      <DependentUpon>201810020845346_AjoutNameTournoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810020858053_ModifTournoiModel.cs" />
+    <Compile Include="Migrations\201810020858053_ModifTournoiModel.Designer.cs">
+      <DependentUpon>201810020858053_ModifTournoiModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810020906078_DtaeObligatoireTournoi.cs" />
+    <Compile Include="Migrations\201810020906078_DtaeObligatoireTournoi.Designer.cs">
+      <DependentUpon>201810020906078_DtaeObligatoireTournoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810020933417_DescriptionTournoi.cs" />
+    <Compile Include="Migrations\201810020933417_DescriptionTournoi.Designer.cs">
+      <DependentUpon>201810020933417_DescriptionTournoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\ArcheryContext.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\BowType.cs" />
@@ -225,6 +241,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810011510116_cascadefalse.resx">
       <DependentUpon>201810011510116_cascadefalse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810020845346_AjoutNameTournoi.resx">
+      <DependentUpon>201810020845346_AjoutNameTournoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810020858053_ModifTournoiModel.resx">
+      <DependentUpon>201810020858053_ModifTournoiModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810020906078_DtaeObligatoireTournoi.resx">
+      <DependentUpon>201810020906078_DtaeObligatoireTournoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810020933417_DescriptionTournoi.resx">
+      <DependentUpon>201810020933417_DescriptionTournoi.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
