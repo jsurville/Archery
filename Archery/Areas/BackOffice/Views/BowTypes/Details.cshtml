@@ -1,13 +1,13 @@
 ﻿@model Archery.Models.BowType
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Arme: Details";
 }
 
 <h2>Details</h2>
 
 <div>
-    <h4>BowType</h4>
+    <h4>Type d'Arme</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -21,6 +21,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Retour à la Liste", "Index")
 </p>

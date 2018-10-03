@@ -6,13 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Archery.Data;
 using Archery.Models;
 
 namespace Archery.Areas.BackOffice.Controllers
 {
     public class BowTypesController : Controller
     {
-        private ArcheryContext db = new ArcheryContext();
+        private ArcheryDbContext db = new ArcheryDbContext();
 
         // GET: BackOffice/BowTypes
         public ActionResult Index()

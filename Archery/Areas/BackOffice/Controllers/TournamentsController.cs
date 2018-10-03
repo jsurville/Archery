@@ -6,13 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Archery.Data;
 using Archery.Models;
 
 namespace Archery.Areas.BackOffice.Controllers
 {
     public class TournamentsController : Controller
     {
-        private ArcheryContext db = new ArcheryContext();
+        private ArcheryDbContext db = new ArcheryDbContext();
 
         // GET: BackOffice/Tournaments
         public ActionResult Index()
@@ -75,11 +76,13 @@ namespace Archery.Areas.BackOffice.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tournament tournament = db.Tournaments.Find(id);
+            Tournament tournament = db.Tournaments.Include("BowList").SingleOrDefault(x => x.ID == id);
             if (tournament == null)
             {
                 return HttpNotFound();
             }
+            MultiSelectList bowTypeValues = new MultiSelectList(db.BowTypes, "ID", "Name", tournament.BowList.Select(x => x.ID));
+            ViewData["Bowtypes"] = bowTypeValues;
             return View(tournament);
         }
 
@@ -88,14 +91,23 @@ namespace Archery.Areas.BackOffice.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Location,Capacity,StartDate,EndDate,FeePerson,Description")] Tournament tournament)
+        public ActionResult Edit([Bind(Include = "ID,Name,Location,Capacity,StartDate,EndDate,FeePerson,Description")] Tournament tournament, int[] BowsID)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tournament).State = EntityState.Modified;
+                db.Entry(tournament).State = EntityState.Modified; // Modifcation d'objet avec relation many to many
+
+                tournament = db.Tournaments.Include("BowList").SingleOrDefault(x => x.ID == tournament.ID); // la liste des bows que l'objet tournament en cache contient
+                if (BowsID != null)
+                    tournament.BowList = db.BowTypes.Where(x => BowsID.Contains(x.ID)).ToList(); // les ID des bows que l'objet tournament du formulaire contient
+                else
+                    tournament.BowList.Clear();
+                
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            MultiSelectList bowTypeValues = new MultiSelectList(db.BowTypes, "ID", "Name");
+            ViewData["Bowtypes"] = bowTypeValues;
             return View(tournament);
         }
 
@@ -119,7 +131,15 @@ namespace Archery.Areas.BackOffice.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Tournament tournament = db.Tournaments.Find(id);
+            Tournament tournament = db.Tournaments.Include("BowList").SingleOrDefault(x => x.ID == id);
+            tournament.BowList.Clear();
+
+            var shooters = db.Shooters.Where(x => x.TournamentID == id);
+            foreach (var item in shooters)
+            {
+                db.Entry(item).State = EntityState.Deleted;  // équivalent à db.Shooters.Remove(item);
+            }
+
             db.Tournaments.Remove(tournament);
             db.SaveChanges();
             return RedirectToAction("Index");

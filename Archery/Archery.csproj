@@ -405,7 +405,6 @@
     <Compile Include="Migrations\201810020933417_DescriptionTournoi.Designer.cs">
       <DependentUpon>201810020933417_DescriptionTournoi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\ArcheryContext.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\BowType.cs" />
     <Compile Include="Models\Registration.cs" />
