@@ -37,6 +37,7 @@ namespace Archery.Areas.BackOffice.Controllers
                 else
                 {
                     Session["ADMINISTRATOR"] = admin; // ouverture d'une session serveur pour l'utilisateur admin qui vient de se conncter
+                    TempData["Name"] = admin.FirstName.ToString() + " " + admin.LastName.ToString();
                     return RedirectToAction("index", "dashboard", new { area = "BackOffice" });
                 }
             }
