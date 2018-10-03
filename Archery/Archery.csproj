@@ -202,6 +202,7 @@
     <Content Include="Content\bootstrap\bootstrap.less" />
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
+    <Content Include="Areas\BackOffice\Views\Authentication\Login.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
@@ -378,9 +379,12 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\AuthenticationController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\BowTypesController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\TournamentsController.cs" />
+    <Compile Include="Areas\BackOffice\Models\AuthenticationViewModels.cs" />
+    <Compile Include="Filters\AuthenticationAttribute.cs" />
     <Compile Include="Migrations\201810011509055_AjoutTournoi.cs" />
     <Compile Include="Migrations\201810011509055_AjoutTournoi.Designer.cs">
       <DependentUpon>201810011509055_AjoutTournoi.cs</DependentUpon>
@@ -469,7 +473,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\BackOffice\Models\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201809271417430_Init.resx">

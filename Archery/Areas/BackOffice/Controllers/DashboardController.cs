@@ -1,4 +1,5 @@
 ﻿using Archery.Data;
+using Archery.Filters;
 using Archery.Models;
 using System;
 using System.Collections.Generic;
@@ -8,10 +9,12 @@ using System.Web.Mvc;
 
 namespace Archery.Areas.BackOffice.Controllers
 {
-    
+    [Authentication]
     public class DashboardController : Controller
     {
         protected ArcheryDbContext db = new ArcheryDbContext();
+
+
         // GET: BackOffice/Dashboard
         public ActionResult Index()
         {

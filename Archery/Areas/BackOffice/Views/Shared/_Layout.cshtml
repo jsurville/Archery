@@ -41,7 +41,15 @@
                     </li>
                 </ul>
             </div>
-           
+            <div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        @Html.ActionLink("Se Déconnecter", "logout", "authentication", new { area = "BackOffice" }, new { @class = "navbar-brand" });
+                    </li>
+
+                </ul>
+            </div>
+            
         </div>
     </div>
 
