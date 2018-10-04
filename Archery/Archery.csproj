@@ -409,6 +409,14 @@
     <Compile Include="Migrations\201810020933417_DescriptionTournoi.Designer.cs">
       <DependentUpon>201810020933417_DescriptionTournoi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810041017568_TournamentPictures.cs" />
+    <Compile Include="Migrations\201810041017568_TournamentPictures.Designer.cs">
+      <DependentUpon>201810041017568_TournamentPictures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810041018364_PicturesCascadefasle.cs" />
+    <Compile Include="Migrations\201810041018364_PicturesCascadefasle.Designer.cs">
+      <DependentUpon>201810041018364_PicturesCascadefasle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\BowType.cs" />
     <Compile Include="Models\Registration.cs" />
@@ -465,6 +473,7 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-mobile.woff" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
+    <Content Include="Views\Home\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -499,6 +508,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810020933417_DescriptionTournoi.resx">
       <DependentUpon>201810020933417_DescriptionTournoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810041017568_TournamentPictures.resx">
+      <DependentUpon>201810041017568_TournamentPictures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810041018364_PicturesCascadefasle.resx">
+      <DependentUpon>201810041018364_PicturesCascadefasle.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

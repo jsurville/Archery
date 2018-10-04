@@ -1,47 +1,43 @@
-﻿<style>
-    #tournois {
-        padding: 5px;
-        margin:0px;
-    }
-</style>
+﻿@model ICollection<Archery.Models.Tournament>
 
-
-<h1>Présentation</h1>
-
-<div>
-    <p>
-        Dans cette application, nous allons mettre en place pour la premiere fois une architecture MVC en ASP.NET.
-
-    </p>
-
-    
-    </div>
-<div class="row ">
-
-    @{
-            var tournois = (ICollection<Archery.Models.Tournament>)ViewData["Tournois"];
-            var tournoistries = tournois.OrderBy(x => x.StartDate);
-            foreach (Archery.Models.Tournament element in tournoistries)
-            {
-    <div id="tournois" class="btn btn-default col-md-3 alert alert-success">
-        <ul>
-            <img url="http://www.enroweb.com/blogsciences/images/len_std.jpg"/>
-        </ul>
-        
-        <ul class="alert alert-info">
-            @(element.Name)
-        </ul>
-        <p>
-            @element.StartDate.ToString().AsDateTime().ToString("Le dd mm yyyy")
-        </p>
-        
-        <p>
-            <strong>
-                @(element.Location)
-            </strong>
-        </p>
-        <p><a href="#" class="btn btn-primary" role="button"> S'inscrire</a> </p>
-    </div>
-            }
+    <style>
+        #tournois {
+            padding: 5px;
+            margin: 0px;
         }
-</div>
+    </style>
+
+    <h1>Présentation</h1>
+    <div>
+        <p>
+            Dans cette application, nous allons mettre en place pour la premiere fois une architecture MVC en ASP.NET.
+        </p>
+    </div>
+    <div class="row">
+        @foreach (Archery.Models.Tournament element in Model)
+        {
+        <div id="tournois" class="col-md-3 alert alert-success" style="margin-bottom:15px">
+            <ul class="alert alert-info">
+                <h3 style="text-align:center">@(element.Name) </h3>
+            </ul>
+            <p>
+                @element.StartDate.ToString().AsDateTime().ToString("Le dd mm yyyy")
+            </p>
+            <p>
+                <strong>
+                    @(element.Location)
+                </strong>
+                <br />
+            </p>
+            @if (element.Pictures?.Count > 0)
+            {
+                <img src="data:@element.Pictures.First().ContentType;base64,@Convert.ToBase64String(element.Pictures.First().Content)" class="img-thumbnail" />
+            }
+            <div>
+                @Html.ActionLink("Details", "Details", new { id = element.ID }, new { @class = "btn btn-info", @style = "float:right" })<a href="#" class="btn btn-primary" role="button" style="float:right"> S'inscrire</a>
+            </div>
+        </div>
+        }
+
+    </div>
+

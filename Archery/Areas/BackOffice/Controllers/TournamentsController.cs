@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -76,7 +77,7 @@ namespace Archery.Areas.BackOffice.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tournament tournament = db.Tournaments.Include("BowList").SingleOrDefault(x => x.ID == id);
+            Tournament tournament = db.Tournaments.Include("Pictures").Include("BowList").SingleOrDefault(x => x.ID == id);
             if (tournament == null)
             {
                 return HttpNotFound();
@@ -91,13 +92,13 @@ namespace Archery.Areas.BackOffice.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Location,Capacity,StartDate,EndDate,FeePerson,Description")] Tournament tournament, int[] BowsID)
+        public ActionResult Edit([Bind(Include = "ID,Name,Location,Capacity,StartDate,EndDate,FeePerson,Description,Pictures")] Tournament tournament, int[] BowsID)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(tournament).State = EntityState.Modified; // Modifcation d'objet avec relation many to many
 
-                tournament = db.Tournaments.Include("BowList").SingleOrDefault(x => x.ID == tournament.ID); // la liste des bows que l'objet tournament en cache contient
+                tournament = db.Tournaments.Include("BowList").Include("Pictures").SingleOrDefault(x => x.ID == tournament.ID); // la liste des bows que l'objet tournament en cache contient
                 if (BowsID != null)
                     tournament.BowList = db.BowTypes.Where(x => BowsID.Contains(x.ID)).ToList(); // les ID des bows que l'objet tournament du formulaire contient
                 else
@@ -110,6 +111,41 @@ namespace Archery.Areas.BackOffice.Controllers
             ViewData["Bowtypes"] = bowTypeValues;
             return View(tournament);
         }
+
+        public ActionResult AddPicture(HttpPostedFileBase picture, int id)
+        {
+            if(picture?.ContentLength >0)
+            {
+                var tp = new TournamentPicture();
+                tp.ContentType = picture.ContentType;
+                tp.Name = picture.FileName;
+                tp.TournamentID = id;
+
+                using(var reader = new BinaryReader(picture.InputStream))
+                {
+                    tp.Content = reader.ReadBytes(picture.ContentLength);
+                }
+                db.TournamentPictures.Add(tp);
+                db.SaveChanges();
+                return RedirectToAction("edit", "tournaments", new { id = id });
+            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        }
+
+
+        public ActionResult DeletePicture(int id, int idtournoi)
+        {
+                TournamentPicture image = db.TournamentPictures.Find(id);
+                
+
+                db.TournamentPictures.Remove(image);
+                db.Entry(image).State = EntityState.Deleted;
+                db.SaveChanges();
+                return RedirectToAction("edit", "tournaments", new { id = idtournoi });
+            
+          
+        }
+
 
         // GET: BackOffice/Tournaments/Delete/5
         public ActionResult Delete(int? id)

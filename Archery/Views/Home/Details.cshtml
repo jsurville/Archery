@@ -1,0 +1,49 @@
+﻿@model Archery.Models.Tournament
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="text-align:center">Details du Tournoi  <strong> @Html.DisplayFor(model => model.Name) </strong></h2>
+
+<div class="container alert alert-info">
+    <div>
+        <ul>
+            <h4>Se déroule à   @Html.DisplayFor(model => model.Location) à partir du <strong> @Html.DisplayFor(model => model.StartDate)</strong> </h4>
+            @Html.Raw(Model.Description)
+        </ul>
+    </div>
+    <div>
+        <ul>
+            @Html.DisplayNameFor(model => model.Capacity) de participants @Html.DisplayFor(model => model.Capacity)
+        </ul>
+
+        @if (Model.FeePerson != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.FeePerson)
+                @Html.DisplayFor(model => model.FeePerson)
+            </dt>
+        }
+
+    </div>
+
+
+    <div class="row">
+        @if (Model.Pictures != null)
+        {
+            foreach (var picture in Model.Pictures)
+            {
+                <div class="col-md-2">
+                    <img src="data:@picture.ContentType;base64,@Convert.ToBase64String(picture.Content)" class="img-thumbnail" />
+                </div>
+            }
+        }
+    </div>
+   
+
+
+</div>
+<div class="container">   
+    @Html.ActionLink("Retour à la Liste", "Index")
+</div>
