@@ -4,80 +4,66 @@
     ViewBag.Title = "Tourrnoi: Details";
 }
 
-<h2>Details</h2>
+<h2>Details du  @Html.DisplayFor(model => model.Name)</h2>
 
 <div>
-    <h4>Tournoi</h4>
+    
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <div class="container btn  row">
+        <div class="col-md-3 ">
+            <div>
+                <h4>@Html.DisplayNameFor(model => model.Name)</h4>
+                <p>  @Html.DisplayFor(model => model.Name) </p>
+                <h4>   @Html.DisplayNameFor(model => model.Location)</h4>
+                <p>
+                    @Html.DisplayFor(model => model.Location)
+                </p>
+            </div>
+        </div>
+        <div class="col-md-3 alert alert-info ">
+            <div style="display:block">
+                <h4>   @Html.DisplayNameFor(model => model.BowList)</h4>
+                <table class="table table-striped">
+                    @foreach (var item in Model.BowList)
+                    {
+                        <tr class="col-md-4" style="text-align:center"><td>@item.Name</td></tr>
+                    }
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BowList)
-        </dt>
-
-        <dd>
-            <table class="table table-striped ">
-                @foreach (var item in Model.BowList)
-                {
-                    <tr><td>@item.Name</td></tr>
-                }
-
-            </table>
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Capacity)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Capacity)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StartDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FeePerson)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FeePerson)
-        </dd>
-        <dd>
-            @Html.Raw(Model.Description) @* pour afficher directement à l'écran la description et non pas le code html de la description obtenue par Tiny MCE*@
-        </dd>
-
-    </dl>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-3 ">
+            <div>
+                <h4> @Html.DisplayNameFor(model => model.Capacity)</h4>
+                <p>
+                    @Html.DisplayFor(model => model.Capacity)
+                </p>
+                <h4>   @Html.DisplayNameFor(model => model.FeePerson)</h4>
+                <p>    @Html.DisplayFor(model => model.FeePerson) </p>
+            </div>
+        </div>
+        <div class="col-md-3 alert alert-info ">
+            <div>
+                <h4>
+                    @Html.DisplayNameFor(model => model.StartDate)
+                </h4>
+                <p>
+                    @Html.DisplayFor(model => model.StartDate)
+                </p>
+                <h4>
+                    @Html.DisplayNameFor(model => model.EndDate)
+                </h4>
+                <p>
+                    @Html.DisplayFor(model => model.EndDate)
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h4>@Html.Raw(Model.Description) </h4>     @* pour afficher directement à l'écran la description et non pas le code html de la description obtenue par Tiny MCE*@
+    </div>
 </div>
-<p>
+<div class="alert alert-info col-md-3" >
     @Html.ActionLink("Modifier", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Retour à la Liste", "Index")
-</p>
+</div>
