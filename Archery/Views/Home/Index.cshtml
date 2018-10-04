@@ -1,4 +1,9 @@
-﻿
+﻿<style>
+    #tournois {
+        padding: 5px;
+        margin:0px;
+    }
+</style>
 
 
 <h1>Présentation</h1>
@@ -9,4 +14,34 @@
 
     </p>
 
+    
     </div>
+<div class="row ">
+
+    @{
+            var tournois = (ICollection<Archery.Models.Tournament>)ViewData["Tournois"];
+            var tournoistries = tournois.OrderBy(x => x.StartDate);
+            foreach (Archery.Models.Tournament element in tournoistries)
+            {
+    <div id="tournois" class="btn btn-default col-md-3 alert alert-success">
+        <ul>
+            <img url="http://www.enroweb.com/blogsciences/images/len_std.jpg"/>
+        </ul>
+        
+        <ul class="alert alert-info">
+            @(element.Name)
+        </ul>
+        <p>
+            @element.StartDate.ToString().AsDateTime().ToString("Le dd mm yyyy")
+        </p>
+        
+        <p>
+            <strong>
+                @(element.Location)
+            </strong>
+        </p>
+        <p><a href="#" class="btn btn-primary" role="button"> S'inscrire</a> </p>
+    </div>
+            }
+        }
+</div>

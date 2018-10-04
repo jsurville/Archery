@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    var admin = Session["ADMINISTRATOR"] as Archery.Models.Administrator;
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -10,7 +14,7 @@
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse " >
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -42,14 +46,11 @@
                 </ul>
             </div>
             <div>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        @Html.ActionLink("Se Déconnecter", "logout", "authentication", new { area = "BackOffice" }, new { @class = "navbar-brand" });
-                    </li>
-
-                </ul>
+                <div class="nav navbar-nav navbar-right" style="color:aliceblue">                    
+                        Bonjour @admin.FirstName @admin.LastName
+                       <a id="logout" href="@Url.Action("logout", "authentication")" class="btn btn-info"> <i class="glyphicon glyphicon-log-out"></i></a>
+                </div>
             </div>
-            
         </div>
     </div>
 
@@ -65,5 +66,24 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.validate.globalize.min.js"></script>
     @RenderSection("SectionScripts", false)
+    <script>
+        const btn = document.querySelector('#logout');
+        btn.addEventListener('click', ev => {
+            if (confirm("Voulez-vous vous déconnecter ?") == false) {
+                ev.preventDefault();
+            }
+        });
+
+
+
+        //$(function () {
+        //    $('#logout').click(function () {
+        //        if (confirm("Vouloez-vous vous déconnecter ?") == false) {
+        //            return false;
+        //        }
+        //    })
+        //})
+    </script>
+
 </body>
 </html>

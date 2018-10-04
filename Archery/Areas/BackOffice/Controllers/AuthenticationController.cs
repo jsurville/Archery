@@ -49,7 +49,8 @@ namespace Archery.Areas.BackOffice.Controllers
         
         public ActionResult Logout()
         {
-            Session["ADMINISTRATOR"] = null; // ouverture d'une session serveur pour l'utilisateur admin qui vient de se conncter
+            Session.Remove("ADMINISTRATOR");
+           // Session["ADMINISTRATOR"] = null; // fermeture de la session serveur pour l'utilisateur admin qui était connecté
                     return RedirectToAction("index", "home", new { area = "" });
          
         }

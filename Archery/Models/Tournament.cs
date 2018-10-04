@@ -50,5 +50,8 @@ namespace Archery.Models
         [Display(Name = "Prix/pers")]
         public double? FeePerson { get; set; }
 
+        [Display(Name ="Images")]
+        public ICollection<TournamentPicture> Pictures { get; set; } // pas obligé
+
     }
 }
