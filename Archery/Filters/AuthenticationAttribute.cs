@@ -16,6 +16,11 @@ namespace Archery.Filters
                 filterContext.Result = new RedirectResult(@"\backoffice\authentication\login");
                 //filterContext.Result = new RedirectToRouteResult(new System.Web.Routing.RouteValueDictionary(new {controller= "authentication", action = "login", area = "BackOffice" }));
             }
+            if (filterContext.HttpContext.Session["ARCHER"] == null)
+            {
+                filterContext.Result = new RedirectResult(@"\authentication\login");
+                //filterContext.Result = new RedirectToRouteResult(new System.Web.Routing.RouteValueDictionary(new {controller= "authentication", action = "login", area = "BackOffice" }));
+            }
         }
     }
 }

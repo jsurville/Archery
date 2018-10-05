@@ -384,6 +384,8 @@
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\TournamentsController.cs" />
     <Compile Include="Areas\BackOffice\Models\AuthenticationViewModels.cs" />
+    <Compile Include="Controllers\AuthenticationShooterController.cs" />
+    <Compile Include="Controllers\ShootersController.cs" />
     <Compile Include="Filters\AuthenticationAttribute.cs" />
     <Compile Include="Migrations\201810011509055_AjoutTournoi.cs" />
     <Compile Include="Migrations\201810011509055_AjoutTournoi.Designer.cs">
@@ -474,6 +476,12 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-mobile.woff" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Authentication\Login.cshtml" />
+    <Content Include="Views\Shooters\Create.cshtml" />
+    <Content Include="Views\Shooters\Delete.cshtml" />
+    <Content Include="Views\Shooters\Details.cshtml" />
+    <Content Include="Views\Shooters\Edit.cshtml" />
+    <Content Include="Views\Shooters\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

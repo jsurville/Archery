@@ -136,9 +136,7 @@ namespace Archery.Areas.BackOffice.Controllers
         // GET
         public ActionResult DeletePicture(int id, int idtournoi)
         {
-
                 TournamentPicture image = db.TournamentPictures.Find(id);
-
                 db.TournamentPictures.Remove(image);
                 db.Entry(image).State = EntityState.Deleted;
                 db.SaveChanges();
