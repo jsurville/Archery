@@ -13,9 +13,9 @@ using Archery.Models;
 namespace Archery.Controllers
 {
     [AuthenticationArcher]
-    public class ShootersController : Controller
+    public class ShootersController : BaseController
     {
-        private ArcheryDbContext db = new ArcheryDbContext();
+       // private ArcheryDbContext db = new ArcheryDbContext();
 
         // GET: Shooters
         public ActionResult Index()
@@ -59,7 +59,11 @@ namespace Archery.Controllers
             {
                 db.Shooters.Add(shooter);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                ;
+                string message = "Le Nouveau Tireur a bien été enregistré au tournoi" + shooter.TournamentID.ToString();
+                Display(message);
+                return RedirectToAction("details", "home", new { id = shooter.TournamentID });
+                
             }
 
             ViewBag.ArcherID = new SelectList(db.Archers, "ID", "LicenseNumber", shooter.ArcherID);
@@ -128,6 +132,7 @@ namespace Archery.Controllers
             Shooter shooter = db.Shooters.Find(id);
             db.Shooters.Remove(shooter);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

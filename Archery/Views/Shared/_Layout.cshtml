@@ -1,4 +1,7 @@
-﻿
+﻿@{
+    var archer = Session["ARCHER"] as Archery.Models.Archer;
+}
+
 <!DOCTYPE html>
 
 <html>
@@ -6,11 +9,11 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title | Archery</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    @*<style> 
-        .page-header {
-          margin-top:-20px;
-            }
-    </style>*@
+    @*<style>
+            .page-header {
+              margin-top:-20px;
+                }
+        </style>*@
 </head>
 <body style="background-color:antiquewhite">
     <header class="page-header fixed-top bg-primary">
@@ -44,16 +47,39 @@
                     <button type="submit" class="btn btn-default alert-info">Rechercher</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="@Url.Action( "list", "archers")">Liste des Participants </a>
-                    </li>
+                    @*<li class="dropdown">
+            <a href="@Url.Action( "list", "archers")">Liste des Participants </a>
+        </li>*@
                     <li class="dropdown">
                         <a href="@Url.Action( "index", "dashboard",new {area ="BackOffice" })">Administration </a>
                     </li>
-                    <li class="dropdown">
-                        <a href="@Url.Action( "subscribe", "archers")">Inscription </a>
-                    </li>
-                    <li><a href="#">Link</a></li>
+                    @if (Session["ARCHER"] != null)
+                    {
+                        <li class="dropdown row">
+                           <a> Binevenue  <strong> @(archer.FirstName + " " + archer.LastName) </strong></a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="dropdown">
+                            <a href="@Url.Action("login", "authenticationshooter", new { area = "" })">Se Connecter </a>
+                        </li>
+
+                    }
+
+                    @if (Session["ARCHER"] == null)
+                    {
+                        <li class="dropdown">
+                            <a href="@Url.Action( "subscribe", "archers")">S'enregistrer </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="dropdown">
+                            <a href="#">Se Déconnecter </a>
+                        </li>
+                    }
+
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -67,7 +93,7 @@
 
         @RenderBody()
     </div>
-   
+
     <footer class="panel-footer">
         &copy; 2018
     </footer>
