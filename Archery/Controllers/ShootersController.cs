@@ -12,7 +12,7 @@ using Archery.Models;
 
 namespace Archery.Controllers
 {
-    [Authentication]
+    [AuthenticationArcher]
     public class ShootersController : Controller
     {
         private ArcheryDbContext db = new ArcheryDbContext();

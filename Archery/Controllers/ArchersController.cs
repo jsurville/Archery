@@ -43,7 +43,7 @@ namespace Archery.Controllers
             
             if (ModelState.IsValid)
             {
-                archer.Password.ToMD5(); // Méthode d'extention
+                archer.Password = archer.Password.ToMD5(); // Méthode d'extention
                 
                     db.Configuration.ValidateOnSaveEnabled = false;
                     db.Archers.Add(archer);
