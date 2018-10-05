@@ -112,6 +112,7 @@ namespace Archery.Areas.BackOffice.Controllers
             return View(tournament);
         }
 
+        [HttpPost]
         public ActionResult AddPicture(HttpPostedFileBase picture, int id)
         {
             if(picture?.ContentLength >0)
@@ -132,18 +133,17 @@ namespace Archery.Areas.BackOffice.Controllers
             return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
-
+        // GET
         public ActionResult DeletePicture(int id, int idtournoi)
         {
+
                 TournamentPicture image = db.TournamentPictures.Find(id);
-                
 
                 db.TournamentPictures.Remove(image);
                 db.Entry(image).State = EntityState.Deleted;
                 db.SaveChanges();
+            // return Json(image);
                 return RedirectToAction("edit", "tournaments", new { id = idtournoi });
-            
-          
         }
 
 
