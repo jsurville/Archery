@@ -12,11 +12,11 @@ namespace Archery
 
 
           
-           //routes.MapRoute(
-           //    name:"SingIn",
-           //    url: "/{}/{controller}/{action}/{id}",
-           //    defaults: new {controller = "AuthenticationShooter", action ="Login"}
-           //    );
+           routes.MapRoute(
+               name:"Identification",
+               url: "{controller}/{action}/{id}",
+               defaults: new {controller = "AuthenticationShooter", action ="Login"}
+               );
 
             // ROUTE PAR DEFAUT toujours en dernier !!
             routes.MapRoute(

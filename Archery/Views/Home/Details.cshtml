@@ -2,6 +2,8 @@
 
 @{
     ViewBag.Title = "Details";
+    TempData["NomTournoi"] = Model.Name;
+    TempData["IDTournoi"] = Model.ID;
 }
 
 <h2 style="text-align:center">Details du Tournoi  <strong> @Html.DisplayFor(model => model.Name) </strong></h2>
@@ -42,7 +44,7 @@
     </div>
    
     <div>
-        <a href="@Url.Action("create", "Shooters")"  id = @Model.ID class="btn btn-primary" role="button" style="float:left"> S'inscrire</a>
+        @Html.ActionLink("S'inscrire", "create", "shooters" , new { id = Model.ID }, new { @class = "btn btn-primary", @role = "button", @style = "float:left" })  
     </div>
 
 

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.WebPages;
 using Archery.Data;
 using Archery.Filters;
 using Archery.Models;
@@ -57,10 +58,13 @@ namespace Archery.Controllers
         {
             if (ModelState.IsValid)
             {
+                var shooterTournament = db.Tournaments.SingleOrDefault(x => x.ID == shooter.TournamentID);
+
+                shooter.StatTime = shooterTournament.StartDate;
                 db.Shooters.Add(shooter);
                 db.SaveChanges();
-                ;
-                string message = "Le Nouveau Tireur a bien été enregistré au tournoi" + shooter.TournamentID.ToString();
+                
+                string message = "Votre inscription au " + shooterTournament.Name + " a bien été prise en compte. Vous recevrez un email de confirmation avec votre heure de départ. Merci ...";
                 Display(message);
                 return RedirectToAction("details", "home", new { id = shooter.TournamentID });
                 

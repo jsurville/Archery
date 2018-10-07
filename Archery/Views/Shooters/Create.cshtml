@@ -2,60 +2,63 @@
 
 @{
     ViewBag.Title = "Inscription : Tournoi";
+    
 }
 
-<h2>Inscription au Tournoi</h2>
+<h2>Inscription au @TempData["NomTournoi"]</h2>
 
-@using (Html.BeginForm()) 
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-   
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @*@Html.HiddenFor(model => model.TournamentID)*@
-    <div class="form-group">
-        @Html.LabelFor(model => model.TournamentID, "Nom du Tournoi", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("TournamentID", null, htmlAttributes: new { @class = "form-control", @value=@ViewData["IDTournoi"] })
-            @Html.ValidationMessageFor(model => model.TournamentID, "", new { @class = "text-danger" })
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @*@Html.HiddenFor(model => model.TournamentID)*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.TournamentID, "Nom du Tournoi", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input Value=@TempData["IDTournoi"] id="IDTournoi" name="TournamentID" type="number" value="@TempData["IDTournoi"]" />
+                @*@Html.EditorFor(model => model.TournamentID, null, new { @class = "form-control", @Value = TempData["IDTournoi"] })*@
+                @Html.ValidationMessageFor(model => model.TournamentID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.BowTypeID, "Type d'Armes", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("BowTypeID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.BowTypeID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArcherID, "Numéro de Licence", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ArcherID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ArcherID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StatTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StatTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.StatTime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Inscription" class="btn btn-default" />
+            </div>
         </div>
     </div>
-
-    <div class="form-group">
-
-        @Html.LabelFor(model => model.BowTypeID, "Type d'Armes", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("BowTypeID", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.BowTypeID, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.ArcherID, "Numéro de Licence", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("ArcherID", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.ArcherID, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.StatTime, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.StatTime, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.StatTime, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Inscription" class="btn btn-default" />
-        </div>
-    </div>
-</div>
 }
 
 <div>
-    @Html.ActionLink("Retour à la liste", "Index", "Home", new { area = "" },new { @class="btn btn-primary"})
+    @Html.ActionLink("Retour à la liste", "Index", "Home", new { area = "" }, new { @class = "btn btn-primary" })
 </div>

@@ -14,7 +14,7 @@ namespace Archery.Controllers
     public class AuthenticationShooterController : BaseController
     {
         // GET: /Authentication
-       // [Route("SingIn")]
+       [Route("Identification")]
        
         public ActionResult Login()
         {
@@ -23,6 +23,7 @@ namespace Archery.Controllers
 
         // POST: /Authentication
         [HttpPost]
+        [Route("Identification")]
         [ValidateAntiForgeryToken]
         public ActionResult Login(AuthenticationLoginViewModel model)
         {
