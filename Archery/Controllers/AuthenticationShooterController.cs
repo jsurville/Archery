@@ -41,6 +41,7 @@ namespace Archery.Controllers
                 {
                     Session["ARCHER"] = shooter; // ouverture d'une session serveur pour l'utilisateur admin qui vient de se conncter
                     TempData["Name"] = shooter.FirstName.ToString() + " " + shooter.LastName.ToString();
+                    TempData["IDArcher"] = shooter.LicenseNumber;
                     return RedirectToAction("index", "shooters");
                 }
             }
@@ -54,6 +55,7 @@ namespace Archery.Controllers
         public ActionResult Logout()
         {
             Session.Remove("ARCHER");
+            Display("Vous avez été déconnecté. A bientôt");
             // Session["ARCHER"] = null; // fermeture de la session serveur pour l'utilisateur admin qui était connecté
             return RedirectToAction("index", "home", new { area = "" });
          
