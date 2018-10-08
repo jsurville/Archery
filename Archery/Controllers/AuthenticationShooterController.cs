@@ -15,7 +15,6 @@ namespace Archery.Controllers
     {
         // GET: /Authentication
        [Route("Identification")]
-       
         public ActionResult Login()
         {
             return View();

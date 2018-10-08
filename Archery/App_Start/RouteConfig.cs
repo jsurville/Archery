@@ -11,12 +11,13 @@ namespace Archery
             routes.MapMvcAttributeRoutes(); // si on veut mapper directement dans le controler 
 
 
-          
-           routes.MapRoute(
-               name:"Identification",
-               url: "{controller}/{action}/{id}",
-               defaults: new {controller = "AuthenticationShooter", action ="Login"}
-               );
+
+            //routes.MapRoute(
+            //   name:"Identification",
+            //   url: "{controller}/{action}/{id}",
+            //   defaults: new {controller = "AuthenticationShooter", action ="Login"}
+            //   );
+            
 
             // ROUTE PAR DEFAUT toujours en dernier !!
             routes.MapRoute(

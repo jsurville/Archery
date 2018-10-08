@@ -41,6 +41,7 @@ namespace Archery.Models
         [DataType(DataType.DateTime)]
         public DateTime? EndDate { get; set; }
 
+        [Required(ErrorMessage = "Le Champ {0} est obligatoire")]
         [Display(Name ="Arme")]
         public ICollection<BowType> BowList { get; set; }
 

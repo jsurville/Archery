@@ -46,9 +46,15 @@
                 </ul>
             </div>
             <div>
-                <div class="nav navbar-nav navbar-right" style="color:aliceblue">                    
-                        Bonjour @admin.FirstName @admin.LastName
-                       <a id="logout" href="@Url.Action("logout", "authentication")" class="btn btn-info"> <i class="glyphicon glyphicon-log-out"></i></a>
+                <div class="nav navbar-nav navbar-right" style="color:aliceblue">
+                    @if (Session["ADMINISTRATOR"] != null)
+                    {
+                        <li class="dropdown row">
+                            <a> Binevenue  <strong> @(admin.FirstName + " " + admin.LastName) </strong></a>
+                        </li>
+                    }
+
+                    <a id="logout" href="@Url.Action("logout", "authentication")" class="btn btn-info"> <i class="glyphicon glyphicon-log-out"></i></a>
                 </div>
             </div>
         </div>

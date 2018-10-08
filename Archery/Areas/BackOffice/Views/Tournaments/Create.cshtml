@@ -34,7 +34,7 @@
         <label class="control-label col-md-2" >Armes</label>
         <div class="col-md-10">
             @Html.ListBox("BowsID", (MultiSelectList)ViewData["Bowtypes"], new { @class = "form-control" })
-          
+            @Html.ValidationMessageFor(model => model.BowList, "", new { @class = "text-danger" })
         </div>
     </div>
 

@@ -14,6 +14,7 @@ namespace Archery.Areas.BackOffice.Controllers
     public class AuthenticationController : BaseController
     {
         // GET: BackOffice/Authentication
+       // [Route("IdentificationAdmin")]
         public ActionResult Login()
         {
             return View();
@@ -21,6 +22,7 @@ namespace Archery.Areas.BackOffice.Controllers
 
         // POST: BackOffice/Authentication
         [HttpPost]
+       // [Route("IdentificationAdmin")]
         [ValidateAntiForgeryToken]
         public ActionResult Login(AuthenticationLoginViewModel model)
         {

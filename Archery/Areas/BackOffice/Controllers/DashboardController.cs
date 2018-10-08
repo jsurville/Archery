@@ -16,6 +16,7 @@ namespace Archery.Areas.BackOffice.Controllers
 
 
         // GET: BackOffice/Dashboard
+        //[Route("Administration")]
         public ActionResult Index()
         {
             //@TempData["AdminName"];
