@@ -7,6 +7,7 @@ namespace Archery
     {
         protected void Application_Start()
         {
+            RouteTable.Routes.MapMvcAttributeRoutes();
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }

@@ -51,7 +51,7 @@
             <a href="@Url.Action( "list", "archers")">Liste des Participants </a>
         </li>*@
                     <li class="dropdown">
-                        <a href="@Url.Action( "login", "authentication",new {area ="BackOffice" })">Administration </a>
+                        <a href="@Url.Action( "index", "dashboard",new {area ="BackOffice" })">Administration </a>
                     </li>
                     @if (Session["ARCHER"] != null)
                     {

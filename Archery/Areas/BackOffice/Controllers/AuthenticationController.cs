@@ -10,11 +10,11 @@ using System.Web.Mvc;
 
 namespace Archery.Areas.BackOffice.Controllers
 {
-   
+   [RouteArea("BackOffice")]
     public class AuthenticationController : BaseController
     {
         // GET: BackOffice/Authentication
-       // [Route("IdentificationAdmin")]
+        [Route("IdentificationAdmin")]
         public ActionResult Login()
         {
             return View();
@@ -22,7 +22,7 @@ namespace Archery.Areas.BackOffice.Controllers
 
         // POST: BackOffice/Authentication
         [HttpPost]
-       // [Route("IdentificationAdmin")]
+        [Route("IdentificationAdmin")]
         [ValidateAntiForgeryToken]
         public ActionResult Login(AuthenticationLoginViewModel model)
         {
