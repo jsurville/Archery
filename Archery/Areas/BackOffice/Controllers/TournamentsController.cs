@@ -41,7 +41,7 @@ namespace Archery.Areas.BackOffice.Controllers
         public ActionResult Create()
         {
             MultiSelectList bowTypeValues = new MultiSelectList(db.BowTypes, "ID", "Name");
-            ViewData["Bowtypes"] = bowTypeValues;
+            ViewBag.BowTypeID =  bowTypeValues;
             return View();
         }
 
@@ -50,14 +50,14 @@ namespace Archery.Areas.BackOffice.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Name,Location,Capacity,StartDate,EndDate,FeePerson,Description")] Tournament tournament, int[] BowsID)
+        public ActionResult Create([Bind(Include = "Name,Location,Capacity,StartDate,EndDate,FeePerson,Description, BowList")] Tournament tournament, int[] BowTypeID)
         {
             if (ModelState.IsValid)
             {
 
                 tournament.BowList = new List<BowType>();
                 
-                foreach (var item in BowsID)
+                foreach (var item in BowTypeID)
                 {
                     tournament.BowList.Add(db.BowTypes.Find(item));
                 }
@@ -66,7 +66,7 @@ namespace Archery.Areas.BackOffice.Controllers
                 return RedirectToAction("Index");
             }
             MultiSelectList bowTypeValues = new MultiSelectList(db.BowTypes, "ID", "Name");
-            ViewData["Bowtypes"] = bowTypeValues;
+            ViewBag.BowTypeID = bowTypeValues;
             return View(tournament);
         }
 

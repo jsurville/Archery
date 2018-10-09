@@ -424,6 +424,10 @@
     <Compile Include="Migrations\201810080842576_ArmesRequises.Designer.cs">
       <DependentUpon>201810080842576_ArmesRequises.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810090458239_BowListnonRequis.cs" />
+    <Compile Include="Migrations\201810090458239_BowListnonRequis.Designer.cs">
+      <DependentUpon>201810090458239_BowListnonRequis.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\BowType.cs" />
     <Compile Include="Models\Registration.cs" />
@@ -530,6 +534,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810080842576_ArmesRequises.resx">
       <DependentUpon>201810080842576_ArmesRequises.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810090458239_BowListnonRequis.resx">
+      <DependentUpon>201810090458239_BowListnonRequis.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
