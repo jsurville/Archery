@@ -29,18 +29,20 @@ namespace Archery.Controllers
             if (ModelState.IsValid)
             {
                 var hash = model.Password.ToMD5();
-                var shooter = db.Archers.SingleOrDefault(
+                var archer = db.Archers.SingleOrDefault(
                     x => x.Email == model.Mail && x.Password == hash);
-                if (shooter == null)
+                if (archer == null)
                 {
                     ModelState.AddModelError("Mail", "Login / Mot de Passe Incorrect");
                     return View();
                 }
                 else
                 {
-                    Session["ARCHER"] = shooter; // ouverture d'une session serveur pour l'utilisateur admin qui vient de se conncter
-                    TempData["Name"] = shooter.FirstName.ToString() + " " + shooter.LastName.ToString();
-                    TempData["IDArcher"] = shooter.LicenseNumber;
+                    Session["ARCHER"] = archer; // ouverture d'une session serveur pour l'utilisateur admin qui vient de se conncter
+                   // ViewBag.Archer = archer;
+                    TempData["Name"] = archer.FirstName.ToString() + " " + archer.LastName.ToString();
+                    TempData["LicenseArcher"] = archer.LicenseNumber;
+                    TempData["IDArcher"] = archer.ID;
                     return RedirectToAction("index", "shooters");
                 }
             }

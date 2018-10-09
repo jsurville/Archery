@@ -59,13 +59,14 @@ namespace Archery.Controllers
             if (ModelState.IsValid)
             {
                 var shooterTournament = db.Tournaments.SingleOrDefault(x => x.ID == shooter.TournamentID);
-
+                
                 shooter.StatTime = shooterTournament.StartDate;
                 db.Shooters.Add(shooter);
                 db.SaveChanges();
                 
                 string message = "Votre inscription au " + shooterTournament.Name + " a bien été prise en compte. Vous recevrez un email de confirmation avec votre heure de départ. Merci ...";
                 Display(message);
+                
                 return RedirectToAction("details", "home", new { id = shooter.TournamentID });
                 
             }
