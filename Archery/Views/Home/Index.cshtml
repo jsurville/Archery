@@ -16,8 +16,8 @@
     <div class="row">
         @foreach (Archery.Models.Tournament element in Model)
         {
-            TempData["IDTournoi"] = element.ID;
-            TempData["NomTournoi"] = element.Name;
+            ViewData["IDTournoi"] = element.ID;
+            TempData["NomTournoiSelect"] = element.Name;
             <div id="tournois" class="col-md-3 alert alert-success" style="margin-bottom:15px">
                 <ul class="alert alert-info">
                     <h3 style="text-align:center">@(element.Name) </h3>

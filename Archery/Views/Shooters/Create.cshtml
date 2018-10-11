@@ -5,7 +5,7 @@
     
 }
 
-<h2>Inscription au @TempData["NomTournoi"]</h2>
+<h2>Inscription au @TempData["NomTournoiSelect"] @*@TempData["NomTournoi"]*@</h2>
 
 
 @using (Html.BeginForm())
@@ -20,7 +20,7 @@
         <div class="form-group">
             
             <div class="col-md-10">
-                <input Value=@TempData["IDTournoi"] id="IDTournoi" name="TournamentID" type="hidden" value="@TempData["IDTournoi"]" />
+                <input Value=@ViewData["IDTournoi"] id="IDTournoi" name="TournamentID" type="hidden" value="@TempData["IDTournoi"]" />
                 <input Value=@TempData["IDArcher"] id="IDArcher" name="ArcherID" type="hidden" value="@TempData["IDArcher"]" />
                 <input Value=@TempData["LicenseArcher"] id="LicenseNumber" name="LicenseNumber" type="hidden" value="@TempData["LicenseArcher"]" />
             </div>
